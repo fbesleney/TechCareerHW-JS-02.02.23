@@ -29572,15 +29572,23 @@ function getUnitPrice(x, y) {
     result.forEach(function(element){
        totalPrice += Number(element); 
     });
-    console.log("3. USA de toplam satış cirom nedir? : ", totalPrice)   // unitPrice'ların toplamı için
+    console.log("3. USA de toplam satış cirom nedir?  : ", totalPrice)   // unitPrice'ların toplamı için
 
+// 3. USA de toplam satış cirom nedir?             map() ile çözüm
 
+let orderOfUSA2 = orders.filter(q => q.shipAddress.country == "USA");  // Tüm USA Siparişlerini filtrelemek için
 
+let prices = orderOfUSA2.map(function(item){
+  return item.details[0].unitPrice;
+});
 
+console.log("3. USA de yapılan satışların unit Price\'lar listesi map() ile : ", prices) //map() ile çözüm
 
-
-
-
+let totalPrice2 = 0;
+prices.forEach(function(element){
+   totalPrice2 += Number(element); 
+});
+console.log("3. USA de toplam satış cirom nedir? map() ile çözüm : ", totalPrice2)   // unitPrice'ların toplamı için
 
 
 
